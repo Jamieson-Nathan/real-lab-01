@@ -24,26 +24,14 @@ library(datasauRus)
 
 ### Exercise 2
 
-The answers for this exercise are already provided to help guide you. Clean up the narrative to reflect what you want to submit. Let’s break it into steps:
+> dino_data <- datasaurus_dozen %>%
++     filter(dataset == "dino")
+> ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
++     geom_point()
 
-First, let's plot the data in the dino dataset:
+Plot makes a dinosaur! Unsure how to paste that in here...
 
-```{r plot-dino, fig.height=3, fig.width=6}
-dino_data <- datasaurus_dozen %>%
-  filter(dataset == "dino")
-
-ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
-  geom_point()
-```
-
-Next, let's calculate the correlation between `x` and `y` in this dataset:
-
-```{r cor-dino}
-dino_data %>%
-  summarize(r = cor(x, y))
-```
-Once you’ve cleaned up the text, add your own explanation or observations here!
-
+And r = -0.0645
 
 ### Exercise 3
 

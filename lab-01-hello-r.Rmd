@@ -2,10 +2,7 @@
 title: "Lab 01 - Hello R"
 author: "Jamieson Nathan"
 date: "1/17/2025"
-output: 
-  html_document: 
-    fig_height: 4
-    fig_width: 9
+output: html_document
 ---
 
 ## Load packages and data
@@ -35,40 +32,53 @@ And r = -0.0645
 
 ### Exercise 3
 
-This is your turn to write the code and narrative for the star dataset. Follow the same steps as above to complete the analysis. Don't forget to label your chunks appropriately!
-
-Note that the R chunks are labeled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient.
-To finish, clean up the narrative by removing these instructions.
 
 ```{r plot-star}
 
 ```
 
-I'm some filler text, you should replace me with more meaningful text...
-
 ```{r cor-star}
 
 ```
-Add your explanation here—what did you notice?
+I noticed it made a star! Also the r value was a little higher but almost identical. 
 
 
 ### Exercise 4
 
 Add your code and narrative to complete this exercise. Use the conventions from the previous exercises to name your chunks and organize your work.
 
-```{r}
+```{r plot-circle}
+
+circle_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
+ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 
 ```
 
-```{r}
+```{r cor-circle}
+
 
 ```
+Value is identical (rouned) to dino. 
 
 ### Exercise 5
 
-This is your final exercise! Add code and narrative as needed. Be creative and show off what you’ve learned so far.
-Add code and narrative as needed.
+```{r plot-all}
 
-To add additional R chunks, you can either type the backticks, curly braces, and the letter `r`, or use the "Insert Chunk" button above (the green C+ icon). Have fun!
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset)) +
+  geom_point() +
+  facet_wrap(~dataset, ncol = 3) +
+  theme(legend.position = "none")
+
+```
+```{r cor-all} 
+
+datasaurus_dozen %>%
+  group_by(dataset) %>%
+  summarize(r = cor(x, y)) %>%
+  print(13)
+
+```
 
 

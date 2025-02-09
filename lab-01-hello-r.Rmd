@@ -2,8 +2,7 @@
 title: "Lab 01 - Hello R"
 author: "Jamieson Nathan"
 date: "1/17/2025"
-output: html_document
----
+output: github_document
 
 ## Load packages and data
 
